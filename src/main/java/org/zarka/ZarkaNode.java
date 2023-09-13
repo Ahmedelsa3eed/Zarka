@@ -1,11 +1,14 @@
 package org.zarka;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.zarka.model.Pair;
 import org.zarka.model.RedBlackTree;
 
 public class ZarkaNode {
     private RedBlackTree memtable;
-    private final Integer MEMTABLE_THRESHOLD = 64; // 64 KB
+    private final Integer MEMTABLE_THRESHOLD = 512; // in KB
+    private static Logger logger = LogManager.getLogger(ZarkaNode.class);
 
     public ZarkaNode() {
         memtable = new RedBlackTree();

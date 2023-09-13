@@ -1,0 +1,22 @@
+<Configuration status="debug" name="Zarka" packages="">
+    <Root level="error">
+        <AppenderRef ref="STDOUT"/>
+    </Root>
+    <Root level="INFO">
+        <AppenderRef ref="console" />
+        <AppenderRef ref="fout"/>
+    </Root>
+
+    <Appenders>
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} %p %m%n"/>
+        </Console>
+    </Appenders>
+    <Appenders>
+        <File name="fout" fileName="node.log" append="true">
+            <PatternLayout>
+                <Pattern>%d{yyyy-MM-dd HH:mm:ss} %-5p %m%nw</Pattern>
+            </PatternLayout>
+        </File>
+    </Appenders>
+</Configuration>
