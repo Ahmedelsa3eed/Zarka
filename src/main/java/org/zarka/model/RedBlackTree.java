@@ -16,6 +16,7 @@ public class RedBlackTree {
     }
     private Node root;
     private Node TNULL;
+    private Integer size;
 
     // Preorder
     private void preOrderHelper(Node node) {
@@ -176,6 +177,8 @@ public class RedBlackTree {
         if (yOriginalColor == 0) {
             fixDelete(x);
         }
+
+        size--;
     }
 
     // Balance the node after insertion
@@ -247,6 +250,7 @@ public class RedBlackTree {
         TNULL.left = null;
         TNULL.right = null;
         root = TNULL;
+        size = 0;
     }
 
     public void preorder() {
@@ -351,6 +355,7 @@ public class RedBlackTree {
         node.left = TNULL;
         node.right = TNULL;
         node.color = 1;
+        size++;
 
         Node y = null;
         Node x = this.root;
@@ -392,6 +397,8 @@ public class RedBlackTree {
     public void deleteNode(int key) {
         deleteNodeHelper(this.root, key);
     }
+
+    public Integer getSize() { return this.size; }
 
     public void printTree() {
         printHelper(this.root, "", true);

@@ -26,6 +26,7 @@ class RedBlackTreeTest {
         for (int i = 0; i < res.size() - 1; i++) {
             assertTrue(res.get(i) <= res.get(i + 1));
         }
+        assertEquals(bst.getSize(), 6);
     }
 
     @org.junit.jupiter.api.Test
@@ -44,10 +45,11 @@ class RedBlackTreeTest {
         for (int i = 0; i < res.size() - 1; i++) {
             assertTrue(res.get(i) <= res.get(i + 1));
         }
+        assertEquals(bst.getSize(), 9);
     }
 
     @org.junit.jupiter.api.Test
-    void deleteNode() {
+    void deleteNodeOne() {
         bst.insert(new Pair(55, "fifty-five"));
         bst.insert(new Pair(40, "forty"));
         bst.insert(new Pair(65, "sixty-five"));
@@ -60,5 +62,25 @@ class RedBlackTreeTest {
         for (int i = 0; i < res.size() - 1; i++) {
             assertTrue(res.get(i) <= res.get(i + 1));
         }
+        assertEquals(bst.getSize(), 5);
+    }
+
+    @org.junit.jupiter.api.Test
+    void deleteNodeTwo() {
+        bst.insert(new Pair(55, "fifty-five"));
+        bst.insert(new Pair(40, "forty"));
+        bst.insert(new Pair(65, "sixty-five"));
+        bst.insert(new Pair(60, "sixty"));
+        bst.insert(new Pair(75, "seventy-five"));
+        bst.insert(new Pair(57, "fifty-seven"));
+        bst.deleteNode(40);
+        bst.deleteNode(75);
+        bst.deleteNode(57);
+        List<Integer> res = bst.inorder();
+        // make sure it's ordered
+        for (int i = 0; i < res.size() - 1; i++) {
+            assertTrue(res.get(i) <= res.get(i + 1));
+        }
+        assertEquals(bst.getSize(), 3);
     }
 }
