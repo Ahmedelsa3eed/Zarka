@@ -5,10 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f83c70a-f600-45c5-8ad6-6250c0590465" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/log4j2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/zarka/CommitLog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/zarka/model/Memtable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/zarka/model/WALEntry.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/zarka/utils/ByteUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/zarka/ZarkaNodeTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/zarka/utils/ByteUtilsTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/zarka/ZarkaNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/zarka/ZarkaNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/zarka/model/Pair.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/zarka/model/Pair.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,53 +64,86 @@
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="org.zarka" />
+      <recent name="org.zarka.utils" />
       <recent name="org.zarka.helper" />
       <recent name="org.zarka.model" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.RedBlackTreeTest.deleteNodeTwo">
-    <configuration name="ObjectSizeCalculatorTest.sizeOf" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.ZarkaNodeTest">
+    <configuration name="ByteUtilsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Zarka" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.zarka.helper.*" />
+          <option name="PATTERN" value="org.zarka.utils.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.zarka.helper" />
-      <option name="MAIN_CLASS_NAME" value="org.zarka.helper.ObjectSizeCalculatorTest" />
-      <option name="METHOD_NAME" value="sizeOf" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="RedBlackTreeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Zarka" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.zarka.model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.zarka.model" />
-      <option name="MAIN_CLASS_NAME" value="org.zarka.model.RedBlackTreeTest" />
+      <option name="PACKAGE_NAME" value="org.zarka.utils" />
+      <option name="MAIN_CLASS_NAME" value="org.zarka.utils.ByteUtilsTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RedBlackTreeTest.deleteNodeTwo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ByteUtilsTest.compressInt3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Zarka" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.zarka.model.*" />
+          <option name="PATTERN" value="org.zarka.utils.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.zarka.model" />
-      <option name="MAIN_CLASS_NAME" value="org.zarka.model.RedBlackTreeTest" />
-      <option name="METHOD_NAME" value="deleteNodeTwo" />
+      <option name="PACKAGE_NAME" value="org.zarka.utils" />
+      <option name="MAIN_CLASS_NAME" value="org.zarka.utils.ByteUtilsTest" />
+      <option name="METHOD_NAME" value="compressInt3" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ByteUtilsTest.compressInt4" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Zarka" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.zarka.utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.zarka.utils" />
+      <option name="MAIN_CLASS_NAME" value="org.zarka.utils.ByteUtilsTest" />
+      <option name="METHOD_NAME" value="compressInt4" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ZarkaNodeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Zarka" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.zarka.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.zarka" />
+      <option name="MAIN_CLASS_NAME" value="org.zarka.ZarkaNodeTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ZarkaNodeTest.put" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Zarka" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.zarka.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.zarka" />
+      <option name="MAIN_CLASS_NAME" value="org.zarka.ZarkaNodeTest" />
+      <option name="METHOD_NAME" value="put" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -113,9 +151,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.RedBlackTreeTest.deleteNodeTwo" />
-        <item itemvalue="JUnit.RedBlackTreeTest" />
-        <item itemvalue="JUnit.ObjectSizeCalculatorTest.sizeOf" />
+        <item itemvalue="JUnit.ZarkaNodeTest" />
+        <item itemvalue="JUnit.ByteUtilsTest.compressInt4" />
+        <item itemvalue="JUnit.ByteUtilsTest" />
+        <item itemvalue="JUnit.ByteUtilsTest.compressInt3" />
+        <item itemvalue="JUnit.ZarkaNodeTest.put" />
       </list>
     </recent_temporary>
   </component>
