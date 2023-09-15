@@ -6,14 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2f83c70a-f600-45c5-8ad6-6250c0590465" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/log4j2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/log4j2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/zarka/CommitLog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/zarka/CommitLog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/zarka/ZarkaNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/zarka/ZarkaNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/zarka/model/Memtable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/zarka/model/Memtable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/zarka/model/Pair.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/zarka/model/Pair.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/zarka/model/WALEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/zarka/model/WALEntry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/zarka/utils/ByteUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/zarka/utils/ByteUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/zarka/utils/ByteUtilsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/zarka/utils/ByteUtilsTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +21,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="ZAR-12-commit-log-using-wal" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
