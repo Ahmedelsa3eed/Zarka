@@ -4,6 +4,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class WALEntry {
     private final long entryIndex;
@@ -31,18 +33,24 @@ public class WALEntry {
         dos.write(keyValuePair);
     }
 
-    public static WALEntry deserialize(InputStream is) {
+    /**
+     * Deserialize all entries from commit log
+     * */
+    public static List<WALEntry> deserialize(InputStream is) {
+        List<WALEntry> entries = new ArrayList<>();
         try {
             DataInputStream dataInputStream = new DataInputStream(is);
-            long entryIndex = dataInputStream.readLong();
-            long timeStamp = dataInputStream.readLong();
-            int keyValueLength = dataInputStream.readInt();
-            byte[] keyValueBytes = dataInputStream.readNBytes(keyValueLength);
-
-            return new WALEntry(entryIndex, keyValueBytes, timeStamp);
+            while (dataInputStream.available() > 0) {
+                long entryIndex = dataInputStream.readLong();
+                long timeStamp = dataInputStream.readLong();
+                int keyValueLength = dataInputStream.readInt();
+                byte[] keyValueBytes = dataInputStream.readNBytes(keyValueLength);
+                entries.add(new WALEntry(entryIndex, keyValueBytes, timeStamp));
+                logger.info("entryIndex: " + entryIndex + " timeStamp: " + timeStamp + " keyValueLength: " + Pair.deserialize(keyValueBytes));
+            }
         } catch (IOException e) {
             logger.error("Error deserializing WALEntry", e);
-            throw new RuntimeException(e);
         }
+        return entries;
     }
 }
