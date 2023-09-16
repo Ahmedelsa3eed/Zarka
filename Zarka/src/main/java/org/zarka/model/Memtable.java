@@ -3,6 +3,7 @@ package org.zarka.model;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.zarka.CommitLog;
+import org.zarka.avro.WeatherData;
 
 import java.util.List;
 
@@ -28,16 +29,15 @@ public class Memtable {
     private void applyEntries(List<WALEntry> walEntries) {
         // TODO: Apply entries to memtable
         for (WALEntry entry : walEntries) {
-            Pair pair = Pair.deserialize(entry.getKeyValuePair());
-            logger.info("Applying key: " + pair.key() + " value: " + pair.value());
-            store.insert(pair);
+            store.insert(entry.getData());
+            logger.info("Applying entry: " + entry.getData().toString());
         }
     }
 
-    public void put(Pair pair) {
-        wal.appendLog(pair);
-        logger.info("Logging Key-value pair to commit log");
-        store.insert(pair);
+    public void put(WeatherData data) {
+        wal.appendLog(data);
+        logger.info("Logging WeatherData to commit log");
+        store.insert(data);
         // if memtable exceeds a certain size, flush to disk
         if (store.getSize() >= MEMTABLE_THRESHOLD) {
             // TODO: Flush to SSTABLE

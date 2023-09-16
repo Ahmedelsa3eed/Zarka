@@ -1,5 +1,6 @@
 package org.zarka;
 
+import org.zarka.avro.WeatherData;
 import org.zarka.model.Pair;
 import org.zarka.model.WALEntry;
 
@@ -15,6 +16,7 @@ public class CommitLog {
     public CommitLog(String path) {
         this.path = path;
         try {
+            // append to commitLog for now
             this.file = new FileOutputStream(path, true);
             this.wal = new DataOutputStream(new BufferedOutputStream(file));
         }
@@ -23,11 +25,11 @@ public class CommitLog {
         }
     }
 
-    public void appendLog(Pair keyValuePair) {
+    public void appendLog(WeatherData data) {
         try {
             WALEntry entry = new WALEntry(
                    entryIndex++,
-                   keyValuePair.serialize(),
+                   data,
                    System.currentTimeMillis());
             // append into commit log
             entry.serialize(wal);

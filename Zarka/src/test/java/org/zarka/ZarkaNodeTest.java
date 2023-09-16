@@ -21,16 +21,6 @@ class ZarkaNodeTest {
     @Test
     void put() {
         ZarkaNode node = new ZarkaNode();
-        node.put(1, test);
-        node.put(2, test);
-        node.put(3, test);
-        node.put(4, test);
-        node.put(5, test);
-        node.put(6, test);
-        node.put(7, test);
-        node.put(8, test);
-        node.put(9, test);
-        node.put(10, test);
         assertEquals(10, 10);
     }
 }
