@@ -5,7 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9877ccaa-5c10-4d97-aba9-73f6e47ac865" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Zarka/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Zarka/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zarka/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Zarka/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zarka/src/main/java/org/zarka/CommitLog.java" beforeDir="false" afterPath="$PROJECT_DIR$/Zarka/src/main/java/org/zarka/CommitLog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zarka/src/main/java/org/zarka/ZarkaNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/Zarka/src/main/java/org/zarka/ZarkaNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zarka/src/main/java/org/zarka/model/Memtable.java" beforeDir="false" afterPath="$PROJECT_DIR$/Zarka/src/main/java/org/zarka/model/Memtable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zarka/src/main/java/org/zarka/model/RedBlackTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/Zarka/src/main/java/org/zarka/model/RedBlackTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zarka/src/main/java/org/zarka/model/WALEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/Zarka/src/main/java/org/zarka/model/WALEntry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zarka/src/test/java/org/zarka/ZarkaNodeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Zarka/src/test/java/org/zarka/ZarkaNodeTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zarka/src/test/java/org/zarka/model/RedBlackTreeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Zarka/src/test/java/org/zarka/model/RedBlackTreeTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,18 +34,42 @@
       </MavenGeneralSettings>
     </option>
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectId" id="2VRT8M2gf5i3qkhAnyLV4RhNLFA" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "D:/Zarka/Zarka"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Zarka/Zarka&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;
   }
-}]]></component>
+}</component>
+  <component name="RunManager">
+    <configuration name="ZarkaNode" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.zarka.ZarkaNode" />
+      <module name="Zarka" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.zarka.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.ZarkaNode" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

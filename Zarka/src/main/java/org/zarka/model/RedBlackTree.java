@@ -5,10 +5,12 @@ package org.zarka.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.zarka.avro.WeatherData;
+
 public class RedBlackTree {
 
     class Node {
-        Pair data;
+        WeatherData data;
         Node parent;
         Node left;
         Node right;
@@ -21,17 +23,17 @@ public class RedBlackTree {
     // Preorder
     private void preOrderHelper(Node node) {
         if (node != TNULL) {
-            System.out.print(node.data.key() + " ");
+            System.out.print(node.data.getStationId() + " ");
             preOrderHelper(node.left);
             preOrderHelper(node.right);
         }
     }
 
     // Inorder
-    private void inOrderHelper(Node node, List<Integer> res) {
+    private void inOrderHelper(Node node, List<Long> res) {
         if (node != TNULL) {
             inOrderHelper(node.left, res);
-            res.add(node.data.key());
+            res.add(node.data.getStationId());
             inOrderHelper(node.right, res);
         }
     }
@@ -41,17 +43,17 @@ public class RedBlackTree {
         if (node != TNULL) {
             postOrderHelper(node.left);
             postOrderHelper(node.right);
-            System.out.print(node.data.key() + " ");
+            System.out.print(node.data.getStationId() + " ");
         }
     }
 
     // Search the tree
     private Node searchTreeHelper(Node node, int key) {
-        if (node == TNULL || key == node.data.key()) {
+        if (node == TNULL || key == node.data.getStationId()) {
             return node;
         }
 
-        if (key < node.data.key()) {
+        if (key < node.data.getStationId()) {
             return searchTreeHelper(node.left, key);
         }
         return searchTreeHelper(node.right, key);
@@ -133,11 +135,11 @@ public class RedBlackTree {
         Node z = TNULL;
         Node x, y;
         while (node != TNULL) {
-            if (node.data.key() == key) {
+            if (node.data.getStationId() == key) {
                 z = node;
             }
 
-            if (node.data.key() <= key) {
+            if (node.data.getStationId() <= key) {
                 node = node.right;
             } else {
                 node = node.left;
@@ -238,7 +240,7 @@ public class RedBlackTree {
             }
 
             String sColor = root.color == 1 ? "RED" : "BLACK";
-            System.out.println(root.data.key() + "(" + sColor + ")");
+            System.out.println(root.data.getStationId() + "(" + sColor + ")");
             printHelper(root.left, indent, false);
             printHelper(root.right, indent, true);
         }
@@ -257,8 +259,8 @@ public class RedBlackTree {
         preOrderHelper(this.root);
     }
 
-    public List<Integer> inorder() {
-        List<Integer> res = new ArrayList<>();
+    public List<Long> inorder() {
+        List<Long> res = new ArrayList<>();
         inOrderHelper(this.root, res);
         return res;
     }
@@ -348,7 +350,7 @@ public class RedBlackTree {
         x.parent = y;
     }
 
-    public void insert(Pair data) {
+    public void insert(WeatherData data) {
         Node node = new Node();
         node.parent = null;
         node.data = data;
@@ -362,7 +364,7 @@ public class RedBlackTree {
 
         while (x != TNULL) {
             y = x;
-            if (node.data.key() < x.data.key()) {
+            if (node.data.getStationId() < x.data.getStationId()) {
                 x = x.left;
             } else {
                 x = x.right;
@@ -372,7 +374,7 @@ public class RedBlackTree {
         node.parent = y;
         if (y == null) {
             root = node;
-        } else if (node.data.key() < y.data.key()) {
+        } else if (node.data.getStationId() < y.data.getStationId()) {
             y.left = node;
         } else {
             y.right = node;
