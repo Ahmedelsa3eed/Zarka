@@ -28,34 +28,9 @@ public class ZarkaNode {
     }
 
     public static void main(String[] args) throws IOException {
-       String test = """
-       {
-           "station_id": 1,
-           "s_no": 1,
-           "battery_status": "low",
-           "status_timestamp": 1681521224,
-           "weather": {
-               "humidity": 35,
-               "temperature": 100,
-               "wind_speed": 13
-           }
-       }""";
-       System.out.println("String byte lenght: " + test.getBytes().length);
-//        ZarkaNode node = new ZarkaNode();
-//        node.put(1, test);
-//        node.put(2, test);
-//        node.put(3, test);
-//        node.put(4, test);
-//        node.put(5, test);
-//        node.put(6, test);
-//        node.put(7, test);
-//        node.put(8, test);
-//        node.put(9, test);
-//        node.put(10, test);
-//        node.close();
-
+        ZarkaNode node = new ZarkaNode();
         WeatherData data = WeatherData.newBuilder()
-                .setStationId(1)
+                .setStationId(11)
                 .setSNo(1)
                 .setBatteryStatus("low")
                 .setStatusTimestamp(1681521224)
@@ -65,9 +40,17 @@ public class ZarkaNode {
                         .setWindSpeed(13)
                         .build())
                 .build();
-        byte[] bytes = data.toByteBuffer().array();
-        System.out.println("Bytes: " + bytes.length);
-        WeatherData deserialized = WeatherData.fromByteBuffer(ByteBuffer.wrap(bytes));
-        System.out.println(deserialized.toString());
+        WeatherData data2 = new WeatherData(12L, 1L, "low", 1681521224L, new Weather(35, 100, 13));
+        WeatherData data3 = new WeatherData(13L, 1L, "low", 1681521224L, new Weather(35, 100, 13));
+        WeatherData data4 = new WeatherData(14L, 1L, "low", 1681521224L, new Weather(35, 100, 13));
+        WeatherData data5 = new WeatherData(15L, 1L, "low", 1681521224L, new Weather(35, 100, 13));
+        WeatherData data6 = new WeatherData(16L, 1L, "low", 1681521224L, new Weather(35, 100, 13));
+        node.put(data);
+        node.put(data2);
+        node.put(data3);
+        node.put(data4);
+        node.put(data5);
+        node.put(data6);
+        node.close();
     }
 }

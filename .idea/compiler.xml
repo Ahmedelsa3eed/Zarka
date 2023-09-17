@@ -9,8 +9,5 @@
         <module name="Zarka" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="Zarka" target="17" />
-    </bytecodeTargetLevel>
   </component>
 </project>
