@@ -1,7 +1,6 @@
 package org.zarka;
 
 import org.zarka.avro.WeatherData;
-import org.zarka.model.Pair;
 import org.zarka.model.WALEntry;
 
 import java.io.*;
@@ -17,7 +16,11 @@ public class CommitLog {
         this.path = path;
         try {
             // append to commitLog for now
-            this.file = new FileOutputStream(path, true);
+            File filePath = new File(path);
+            if (!filePath.exists()) {
+                filePath.createNewFile();
+            }
+            this.file = new FileOutputStream(filePath, true);
             this.wal = new DataOutputStream(new BufferedOutputStream(file));
         }
         catch (Exception e) {

@@ -4,53 +4,117 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9877ccaa-5c10-4d97-aba9-73f6e47ac865" name="Changes" comment="">
+    <list default="true" id="2f83c70a-f600-45c5-8ad6-6250c0590465" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_20_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_core_2_20_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_5_8_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_8_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_8_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_params_5_8_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_8_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_8_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Zarka/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Zarka/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Zarka/src/main/java/org/zarka/CommitLog.java" beforeDir="false" afterPath="$PROJECT_DIR$/Zarka/src/main/java/org/zarka/CommitLog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Zarka/src/main/java/org/zarka/ZarkaNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/Zarka/src/main/java/org/zarka/ZarkaNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Zarka/src/main/java/org/zarka/model/Memtable.java" beforeDir="false" afterPath="$PROJECT_DIR$/Zarka/src/main/java/org/zarka/model/Memtable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Zarka/src/main/java/org/zarka/model/RedBlackTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/Zarka/src/main/java/org/zarka/model/RedBlackTree.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Zarka/src/main/java/org/zarka/model/WALEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/Zarka/src/main/java/org/zarka/model/WALEntry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Zarka/src/test/java/org/zarka/ZarkaNodeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Zarka/src/test/java/org/zarka/ZarkaNodeTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Zarka/src/test/java/org/zarka/model/RedBlackTreeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Zarka/src/test/java/org/zarka/model/RedBlackTreeTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zarka/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zarka/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zarka/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zarka/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zarka/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zarka/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zarka/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zarka/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zarka/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zarka/src/main/java/org/zarka/CommitLog.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zarka/src/main/java/org/zarka/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zarka/src/main/java/org/zarka/ZarkaNode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zarka/src/main/java/org/zarka/avro/AvroSerializerDeserializer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zarka/src/main/java/org/zarka/avro/Weather.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zarka/src/main/java/org/zarka/avro/WeatherData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zarka/src/main/java/org/zarka/model/Memtable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zarka/src/main/java/org/zarka/model/Pair.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zarka/src/main/java/org/zarka/model/RedBlackTree.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zarka/src/main/java/org/zarka/model/WALEntry.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zarka/src/main/java/org/zarka/utils/ByteUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zarka/src/main/resources/log4j2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zarka/src/main/resources/message.avsc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zarka/src/main/resources/messages.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zarka/src/test/java/org/zarka/ZarkaNodeTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zarka/src/test/java/org/zarka/model/RedBlackTreeTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zarka/src/test/java/org/zarka/utils/ByteUtilsTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="JUnit5 Test Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="ZAR-12-commit-log-using-wal" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="useMavenConfig" value="true" />
-      </MavenGeneralSettings>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="workspaceImportEnabled" value="true" />
+      </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+  <component name="ProjectId" id="2VIL0LqPSMOCXoA45IhY927Df2A" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
   </component>
-  <component name="ProjectId" id="2VRT8M2gf5i3qkhAnyLV4RhNLFA" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Zarka/Zarka&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "last_opened_file_path": "D:/Zarka/Zarka/Zarka",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
   }
-}</component>
-  <component name="RunManager">
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Zarka\Zarka\Zarka\src\main\resources" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="org.zarka" />
+      <recent name="org.zarka.utils" />
+      <recent name="org.zarka.helper" />
+      <recent name="org.zarka.model" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.ZarkaNode">
     <configuration name="ZarkaNode" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.zarka.ZarkaNode" />
       <module name="Zarka" />
@@ -64,26 +128,117 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ByteUtilsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Zarka" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.zarka.utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.zarka.utils" />
+      <option name="MAIN_CLASS_NAME" value="org.zarka.utils.ByteUtilsTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ByteUtilsTest.compressInt3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Zarka" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.zarka.utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.zarka.utils" />
+      <option name="MAIN_CLASS_NAME" value="org.zarka.utils.ByteUtilsTest" />
+      <option name="METHOD_NAME" value="compressInt3" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ByteUtilsTest.compressInt4" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Zarka" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.zarka.utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.zarka.utils" />
+      <option name="MAIN_CLASS_NAME" value="org.zarka.utils.ByteUtilsTest" />
+      <option name="METHOD_NAME" value="compressInt4" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ZarkaNodeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Zarka" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.zarka.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.zarka" />
+      <option name="MAIN_CLASS_NAME" value="org.zarka.ZarkaNodeTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.ZarkaNode" />
+        <item itemvalue="JUnit.ByteUtilsTest" />
+        <item itemvalue="JUnit.ZarkaNodeTest" />
+        <item itemvalue="JUnit.ByteUtilsTest.compressInt4" />
+        <item itemvalue="JUnit.ByteUtilsTest.compressInt3" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="9877ccaa-5c10-4d97-aba9-73f6e47ac865" name="Changes" comment="" />
-      <created>1694797732804</created>
+      <changelist id="2f83c70a-f600-45c5-8ad6-6250c0590465" name="Changes" comment="" />
+      <created>1694518427458</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1694797732804</updated>
+      <updated>1694518427458</updated>
     </task>
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
+        <entry key="45dcff31-7c0f-4821-8884-93d78b7b8adf">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="structure">
+                    <value>
+                      <list>
+                        <option value="dir:D:/Zarka/Zarka/Zarka/src/test/java" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
             <State />
@@ -91,5 +246,109 @@
         </entry>
       </map>
     </option>
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="45dcff31-7c0f-4821-8884-93d78b7b8adf" value="TOOL_WINDOW" />
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/.." />
+    </ignored-roots>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/org/zarka/model/RedBlackTree.java</url>
+          <line>350</line>
+          <properties class="org.zarka.model.RedBlackTree" method="insert">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/org/zarka/model/WALEntry.java</url>
+          <line>38</line>
+          <properties class="org.zarka.model.WALEntry" method="deserialize">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/org/zarka/model/Memtable.java</url>
+          <line>20</line>
+          <properties class="org.zarka.model.Memtable" method="applyLog">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/org/zarka/CommitLog.java</url>
+          <line>43</line>
+          <properties class="org.zarka.CommitLog" method="readAll">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/org/zarka/model/Memtable.java</url>
+          <line>27</line>
+          <properties class="org.zarka.model.Memtable" method="applyEntries">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/org/zarka/CommitLog.java</url>
+          <line>25</line>
+          <properties class="org.zarka.CommitLog" method="appendLog">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/zarka/ZarkaNode.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/zarka/model/WALEntry.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/zarka/CommitLog.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/zarka/CommitLog.java</url>
+          <line>34</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand>
+      <path>
+        <item name="Zarka" type="b2602c69:ProjectViewProjectNode" />
+        <item name="Zarka" type="462c0819:PsiDirectoryNode" />
+      </path>
+      <path>
+        <item name="Zarka" type="b2602c69:ProjectViewProjectNode" />
+        <item name="Zarka" type="462c0819:PsiDirectoryNode" />
+        <item name="src" type="462c0819:PsiDirectoryNode" />
+      </path>
+    </expand>
+    <select />
   </component>
 </project>
