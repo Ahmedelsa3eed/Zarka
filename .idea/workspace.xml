@@ -4,52 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f83c70a-f600-45c5-8ad6-6250c0590465" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_20_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_core_2_20_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_5_8_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_8_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_8_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_params_5_8_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_8_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_8_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Zarka/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Zarka/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Zarka/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Zarka/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Zarka/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Zarka/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Zarka/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Zarka/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Zarka/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Zarka/src/main/java/org/zarka/CommitLog.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Zarka/src/main/java/org/zarka/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Zarka/src/main/java/org/zarka/ZarkaNode.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Zarka/src/main/java/org/zarka/avro/AvroSerializerDeserializer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Zarka/src/main/java/org/zarka/avro/Weather.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Zarka/src/main/java/org/zarka/avro/WeatherData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Zarka/src/main/java/org/zarka/model/Memtable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Zarka/src/main/java/org/zarka/model/Pair.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Zarka/src/main/java/org/zarka/model/RedBlackTree.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Zarka/src/main/java/org/zarka/model/WALEntry.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Zarka/src/main/java/org/zarka/utils/ByteUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Zarka/src/main/resources/log4j2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Zarka/src/main/resources/message.avsc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Zarka/src/main/resources/messages.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Zarka/src/test/java/org/zarka/ZarkaNodeTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Zarka/src/test/java/org/zarka/model/RedBlackTreeTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Zarka/src/test/java/org/zarka/utils/ByteUtilsTest.java" beforeDir="false" />
-    </list>
+    <list default="true" id="2f83c70a-f600-45c5-8ad6-6250c0590465" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
