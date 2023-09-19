@@ -1,17 +1,19 @@
 package org.zarka.model;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.zarka.CommitLog;
 import org.zarka.avro.WeatherData;
+import org.zarka.sstable.SSTable;
 
 import java.util.List;
 
 public class Memtable {
     private RedBlackTree store;
     private CommitLog wal;
-    private final Integer MEMTABLE_THRESHOLD = 512; // in KB
-    private static Logger logger = LogManager.getLogger(Memtable.class);
+    private SSTable sstable;
+    private final Integer MEMTABLE_THRESHOLD = 8; // Number of nodes in RB tree
+    private static Logger logger = LoggerFactory.getLogger(Memtable.class);
 
     public Memtable() {
         store = new RedBlackTree();
@@ -36,13 +38,18 @@ public class Memtable {
 
     public void put(WeatherData data) {
         wal.appendLog(data);
-        logger.info("Logging WeatherData to commit log");
+        logger.info("Logging WeatherData to the CommitLog");
         store.insert(data);
-        // if memtable exceeds a certain size, flush to disk
-        if (store.getSize() >= MEMTABLE_THRESHOLD) {
-            // TODO: Flush to SSTABLE
+        // if memtable exceeds MEMTABLE_THRESHOLD, flush to disk
+        if (store.getNodesCount() >= MEMTABLE_THRESHOLD) {
             logger.info("Flushing memtable to disk");
+            sstable = new SSTable();
+            sstable.write(this);
         }
+    }
+
+    public List<WeatherData> getInOrder() {
+        return store.inorder();
     }
 
     public void closeMemtable() {

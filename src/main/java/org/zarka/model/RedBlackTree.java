@@ -16,6 +16,7 @@ public class RedBlackTree {
         Node right;
         int color;
     }
+
     private Node root;
     private Node TNULL;
     private Integer size;
@@ -30,10 +31,10 @@ public class RedBlackTree {
     }
 
     // Inorder
-    private void inOrderHelper(Node node, List<Long> res) {
+    private void inOrderHelper(Node node, List<WeatherData> res) {
         if (node != TNULL) {
             inOrderHelper(node.left, res);
-            res.add(node.data.getStationId());
+            res.add(node.data);
             inOrderHelper(node.right, res);
         }
     }
@@ -259,8 +260,8 @@ public class RedBlackTree {
         preOrderHelper(this.root);
     }
 
-    public List<Long> inorder() {
-        List<Long> res = new ArrayList<>();
+    public List<WeatherData> inorder() {
+        List<WeatherData> res = new ArrayList<>();
         inOrderHelper(this.root, res);
         return res;
     }
@@ -400,7 +401,9 @@ public class RedBlackTree {
         deleteNodeHelper(this.root, key);
     }
 
-    public Integer getSize() { return this.size; }
+    public Integer getNodesCount() {
+        return this.size;
+    }
 
     public void printTree() {
         printHelper(this.root, "", true);
