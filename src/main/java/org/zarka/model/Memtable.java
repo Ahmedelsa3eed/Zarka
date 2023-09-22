@@ -1,22 +1,24 @@
 package org.zarka.model;
 
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.zarka.CommitLog;
 import org.zarka.avro.WeatherData;
+import org.zarka.sstable.SSTableWriter;
 
 import java.util.List;
 
 public class Memtable {
     private RedBlackTree store;
-    private CommitLog wal;
-    private final Integer MEMTABLE_THRESHOLD = 512; // in KB
+    private CommitLog wal; // remove while removing memtable
+    private final Integer MEMTABLE_THRESHOLD = 8; // # nodes in RB tree
     private static Logger logger = LogManager.getLogger(Memtable.class);
 
     public Memtable() {
         store = new RedBlackTree();
-        wal = new CommitLog("logs/commitLog");
-        this.applyLog();
+        wal = new CommitLog();
+        applyLog();
     }
 
     public void applyLog() {
@@ -27,25 +29,27 @@ public class Memtable {
     }
 
     private void applyEntries(List<WALEntry> walEntries) {
-        // TODO: Apply entries to memtable
         for (WALEntry entry : walEntries) {
+            logger.info("Applying entry with key: " + entry.getData().getStationId());
             store.insert(entry.getData());
-            logger.info("Applying entry: " + entry.getData().toString());
         }
     }
 
     public void put(WeatherData data) {
         wal.appendLog(data);
-        logger.info("Logging WeatherData to commit log");
         store.insert(data);
-        // if memtable exceeds a certain size, flush to disk
-        if (store.getSize() >= MEMTABLE_THRESHOLD) {
-            // TODO: Flush to SSTABLE
-            logger.info("Flushing memtable to disk");
-        }
     }
 
-    public void closeMemtable() {
-        wal.closeCommitLog();
+    public boolean exceedsThreshold() {
+        return store.getNodesCount() >= MEMTABLE_THRESHOLD;
     }
+
+    public List<WeatherData> getInOrder() {
+        return store.inorder();
+    }
+
+    public boolean clearCommitLog() {
+        return wal.clear();
+    }
+
 }

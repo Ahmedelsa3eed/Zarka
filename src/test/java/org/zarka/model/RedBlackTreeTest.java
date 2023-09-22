@@ -10,6 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class RedBlackTreeTest {
     RedBlackTree bst;
+
     @BeforeEach
     void setUp() {
         bst = new RedBlackTree();
@@ -18,16 +19,16 @@ class RedBlackTreeTest {
     @org.junit.jupiter.api.Test
     void testInsertOne() {
         WeatherData data = WeatherData.newBuilder()
-        .setStationId(1L)
-        .setSNo(1L)
-        .setBatteryStatus("low")
-        .setStatusTimestamp(1681521224L)
-        .setWeather(Weather.newBuilder()
-                .setHumidity(35)
-                .setTemperature(100)
-                .setWindSpeed(13)
-                .build())
-        .build();
+                .setStationId(1L)
+                .setSNo(1L)
+                .setBatteryStatus("low")
+                .setStatusTimestamp(1681521224L)
+                .setWeather(Weather.newBuilder()
+                        .setHumidity(35)
+                        .setTemperature(100)
+                        .setWindSpeed(13)
+                        .build())
+                .build();
         WeatherData data2 = new WeatherData(2L, 1L, "low", 1681521224L, new Weather(35, 100, 13));
         WeatherData data3 = new WeatherData(3L, 1L, "low", 1681521224L, new Weather(35, 100, 13));
         WeatherData data4 = new WeatherData(4L, 1L, "low", 1681521224L, new Weather(35, 100, 13));
@@ -39,12 +40,12 @@ class RedBlackTreeTest {
         bst.insert(data4);
         bst.insert(data5);
         bst.insert(data6);
-        List<Long> res = bst.inorder();
+        List<WeatherData> res = bst.inorder();
         // make sure it's ordered
         for (int i = 0; i < res.size() - 1; i++) {
-            assertTrue(res.get(i) <= res.get(i + 1));
+            assertTrue(res.get(i).getStationId() <= res.get(i + 1).getStationId());
         }
-        assertEquals(bst.getSize(), 6);
+        assertEquals(bst.getNodesCount(), 6);
     }
 
     @org.junit.jupiter.api.Test
@@ -60,12 +61,12 @@ class RedBlackTreeTest {
         bst.insert(data5);
         bst.insert(data6);
         bst.deleteNode(4);
-        List<Long> res = bst.inorder();
+        List<WeatherData> res = bst.inorder();
         // make sure it's ordered
         for (int i = 0; i < res.size() - 1; i++) {
-            assertTrue(res.get(i) <= res.get(i + 1));
+            assertTrue(res.get(i).getStationId() <= res.get(i + 1).getStationId());
         }
-        assertEquals(bst.getSize(), 4);
+        assertEquals(bst.getNodesCount(), 4);
     }
 
     @org.junit.jupiter.api.Test
@@ -83,11 +84,11 @@ class RedBlackTreeTest {
         bst.deleteNode(3);
         bst.deleteNode(4);
         bst.deleteNode(5);
-        List<Long> res = bst.inorder();
+        List<WeatherData> res = bst.inorder();
         // make sure it's ordered
         for (int i = 0; i < res.size() - 1; i++) {
-            assertTrue(res.get(i) <= res.get(i + 1));
+            assertTrue(res.get(i).getStationId() <= res.get(i + 1).getStationId());
         }
-        assertEquals(bst.getSize(), 2);
+        assertEquals(bst.getNodesCount(), 2);
     }
 }

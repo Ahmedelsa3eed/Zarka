@@ -49,7 +49,7 @@ public class WALEntry {
                 int dataLength = dataInputStream.readInt();
                 WeatherData deserializedData = WeatherData.fromByteBuffer(ByteBuffer.wrap(dataInputStream.readNBytes(dataLength)));
                 entries.add(new WALEntry(entryIndex, deserializedData, timeStamp));
-                logger.info("entryIndex: " + entryIndex + " timeStamp: " + timeStamp + " keyValueLength: " + deserializedData.toString());
+                logger.info("Read: entryIndex: " + entryIndex + " timeStamp: " + timeStamp + " keyValue: " + deserializedData.toString());
             }
         } catch (IOException e) {
             logger.error("Error deserializing WALEntry", e);
