@@ -1,35 +1,39 @@
 package org.zarka;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.zarka.avro.WeatherData;
 import org.zarka.model.WALEntry;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
+/*
+ * Commit Log tracks every write operation into the system. The aim of the commit log is to be able to
+ * successfully recover data that was not stored to disk via the Memtable.
+ */
 public class CommitLog {
-    private Long entryIndex = 0L;
-    private FileOutputStream file;
-    private DataOutputStream wal;
-    private final String baseName = "logs/commitLog";
-    private File allocatingSegment;
-    private File availableSegment;
+    private Long entryIndex = 1L;
+    private FileOutputStream fos;
+    private DataOutputStream dos;
+    private String baseName;
+    private File logFile; // log file for current memtable
+    private static Logger logger = LogManager.getLogger(CommitLog.class);
 
     public CommitLog() {
-        allocatingSegment = new File(baseName + ".allocating");
-        availableSegment = new File(baseName + ".available");
+        baseName = "logs/commitLog_" + System.currentTimeMillis();
+        logFile = new File(baseName + ".allocating");
         try {
-            if (!allocatingSegment.exists()) {
-                allocatingSegment.createNewFile();
+            if (!logFile.exists()) {
+                logger.info("Creating new allocating commitLog segment");
+                logFile.createNewFile();
             }
-            else {
-                if (allocatingSegment.renameTo(availableSegment)) {
-                    System.out.println("Segment renamed successfully");
-                }
-            }
-            file = new FileOutputStream(allocatingSegment.getAbsolutePath(), true);
-            wal = new DataOutputStream(new BufferedOutputStream(file));
-        }
-        catch (IOException e) {
+            fos = new FileOutputStream(logFile.getAbsolutePath(), true);
+            dos = new DataOutputStream(new BufferedOutputStream(fos));
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
@@ -37,51 +41,57 @@ public class CommitLog {
     public void appendLog(WeatherData data) {
         try {
             WALEntry entry = new WALEntry(
-                   entryIndex++,
-                   data,
-                   System.currentTimeMillis());
-            // append into commit log
-            entry.serialize(wal);
-            // TODO: remove flush() later
-            wal.flush();
+                    entryIndex++,
+                    data,
+                    System.currentTimeMillis());
+            entry.serialize(dos); // append into commit log
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            logger.error("Error appending to commit log", e);
         }
     }
 
     /**
-     * Read all entries from commit log
-     * */
-    public List<WALEntry> readAll() {
-        try {
-            InputStream is = new FileInputStream(baseName + ".allocating");
-            List<WALEntry> walEntries = WALEntry.deserialize(is);
-            is.close();
-            return walEntries;
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+     * Read and recover entries from commit log files.
+     */
+    public List<WALEntry> recover() {
+        List<WALEntry> recoveredEntries = new ArrayList<>();
+        
+        File commitLogDir = new File("logs/");
+        File[] commitLogFiles = commitLogDir.listFiles((dir, name) -> name.startsWith("commitLog_"));
+        
+        if (commitLogFiles != null && commitLogFiles.length > 0) {
+            Arrays.sort(commitLogFiles, Comparator.comparing(File::getName));
+            
+            for (File logFile : commitLogFiles) {
+                try (InputStream is = new FileInputStream(logFile)) {
+                    List<WALEntry> walEntries = WALEntry.deserialize(is);
+                    recoveredEntries.addAll(walEntries);
+                } catch (IOException e) {
+                    logger.error("Error recovering commit log", e);
+                }
+            }
         }
+
+        return recoveredEntries;
     }
 
     public void close() {
         try {
-            wal.close();
-            file.close();
-            if (availableSegment.exists()) {
-                availableSegment.delete();
-            }
+            dos.close();
+            fos.close();
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            logger.error("Error closing commit log", e);
         }
     }
 
     public boolean clear() {
-        if (allocatingSegment.exists()) {
+        if (logFile.exists()) {
             try {
-                wal.close();
-                file.close();
-                return allocatingSegment.delete();
+                dos.close();
+                fos.close();
+                return logFile.delete();
             } catch (IOException e) {
+                logger.error("Error clearing commit log", e);
                 return false;
             }
         }

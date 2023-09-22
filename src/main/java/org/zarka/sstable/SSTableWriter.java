@@ -28,6 +28,9 @@ public class SSTableWriter {
             if (!memtable.clearCommitLog()) {
                 logger.error("Error clearing commit log");
             }
+            else {
+                logger.info("Cleared commit log");
+            }
             return null;
         });
     }
@@ -40,7 +43,6 @@ public class SSTableWriter {
                 new FileOutputStream(ssTable.getBaseFileName(), true));
             for (WeatherData data: memtable.getInOrder())
                 dos.write(data.toByteBuffer().array());
-            dos.flush();
             dos.close();
         }
         catch (FileNotFoundException e) {

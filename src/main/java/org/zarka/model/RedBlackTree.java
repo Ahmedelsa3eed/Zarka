@@ -49,7 +49,7 @@ public class RedBlackTree {
     }
 
     // Search the tree
-    private Node searchTreeHelper(Node node, int key) {
+    private Node searchTreeHelper(Node node, long key) {
         if (node == TNULL || key == node.data.getStationId()) {
             return node;
         }
@@ -270,8 +270,9 @@ public class RedBlackTree {
         postOrderHelper(this.root);
     }
 
-    public Node searchTree(int k) {
-        return searchTreeHelper(this.root, k);
+    public WeatherData searchTree(long k) {
+        Node res = searchTreeHelper(this.root, k);
+        return res == TNULL ? null : res.data;
     }
 
     private Node minimum(Node node) {
