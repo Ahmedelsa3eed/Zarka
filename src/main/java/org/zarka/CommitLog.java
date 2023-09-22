@@ -10,20 +10,26 @@ public class CommitLog {
     private Long entryIndex = 0L;
     private FileOutputStream file;
     private DataOutputStream wal;
-    private String path;
+    private final String baseName = "logs/commitLog";
+    private File allocatingSegment;
+    private File availableSegment;
 
-    public CommitLog(String path) {
-        this.path = path;
+    public CommitLog() {
+        allocatingSegment = new File(baseName + ".allocating");
+        availableSegment = new File(baseName + ".available");
         try {
-            // append to commitLog for now
-            File filePath = new File(path);
-            if (!filePath.exists()) {
-                filePath.createNewFile();
+            if (!allocatingSegment.exists()) {
+                allocatingSegment.createNewFile();
             }
-            this.file = new FileOutputStream(filePath, true);
-            this.wal = new DataOutputStream(new BufferedOutputStream(file));
+            else {
+                if (allocatingSegment.renameTo(availableSegment)) {
+                    System.out.println("Segment renamed successfully");
+                }
+            }
+            file = new FileOutputStream(allocatingSegment.getAbsolutePath(), true);
+            wal = new DataOutputStream(new BufferedOutputStream(file));
         }
-        catch (Exception e) {
+        catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
@@ -48,7 +54,7 @@ public class CommitLog {
      * */
     public List<WALEntry> readAll() {
         try {
-            InputStream is = new FileInputStream(path);
+            InputStream is = new FileInputStream(baseName + ".allocating");
             List<WALEntry> walEntries = WALEntry.deserialize(is);
             is.close();
             return walEntries;
@@ -57,12 +63,28 @@ public class CommitLog {
         }
     }
 
-    public void closeCommitLog() {
+    public void close() {
         try {
             wal.close();
             file.close();
+            if (availableSegment.exists()) {
+                availableSegment.delete();
+            }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public boolean clear() {
+        if (allocatingSegment.exists()) {
+            try {
+                wal.close();
+                file.close();
+                return allocatingSegment.delete();
+            } catch (IOException e) {
+                return false;
+            }
+        }
+        return false;
     }
 }

@@ -4,20 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f83c70a-f600-45c5-8ad6-6250c0590465" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/zarka/ZarkaNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/zarka/ZarkaNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/zarka/avro/AvroSerializerDeserializer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/zarka/avro/Weather.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/zarka/avro/Weather.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/zarka/avro/WeatherData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/zarka/avro/WeatherData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/zarka/model/Memtable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/zarka/model/Memtable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/zarka/model/Pair.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/zarka/model/RedBlackTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/zarka/model/RedBlackTree.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/zarka/model/WALEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/zarka/model/WALEntry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/log4j2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/log4j2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/zarka/model/RedBlackTreeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/zarka/model/RedBlackTreeTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="2f83c70a-f600-45c5-8ad6-6250c0590465" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -250,21 +237,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/org/zarka/CommitLog.java</url>
           <line>34</line>
           <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/zarka/sstable/SSTable.java</url>
-          <line>35</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/zarka/model/Memtable.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/zarka/model/Memtable.java</url>
-          <line>33</line>
-          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
