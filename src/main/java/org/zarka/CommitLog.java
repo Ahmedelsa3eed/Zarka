@@ -75,6 +75,19 @@ public class CommitLog {
         return recoveredEntries;
     }
 
+    public void deleteRecoveredLog() {
+        File commitLogDir = new File("logs/");
+        File[] commitLogFiles = commitLogDir.listFiles((dir, name) -> name.startsWith("commitLog_") && !name.equals(logFile.getName()));
+        
+        if (commitLogFiles != null && commitLogFiles.length > 0) {
+            for (File logFile : commitLogFiles) {
+                if (!logFile.delete()) {
+                    logger.error("Error deleting commit log file: " + logFile.getName());
+                }
+            }
+        }
+    }
+
     public void close() {
         try {
             dos.close();

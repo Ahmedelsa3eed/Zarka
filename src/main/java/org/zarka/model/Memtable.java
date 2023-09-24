@@ -10,7 +10,7 @@ import java.util.List;
 public class Memtable {
     private RedBlackTree store;
     private CommitLog wal; // remove while removing memtable
-    private final Integer MEMTABLE_THRESHOLD = 16; // # nodes in RB tree
+    private final Integer MEMTABLE_THRESHOLD = 32; // # nodes in RB tree
     private static Logger logger = LogManager.getLogger(Memtable.class);
 
     public Memtable(CommitLog wal) {
@@ -30,6 +30,10 @@ public class Memtable {
             logger.info("Applying entry with key: " + entry.getData().getStationId());
             store.insert(entry.getData());
         }
+    }
+
+    public void deleteRecoveredLog() {
+        wal.deleteRecoveredLog();
     }
 
     public void put(WeatherData data) {
