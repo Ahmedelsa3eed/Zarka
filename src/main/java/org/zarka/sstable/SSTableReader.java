@@ -14,6 +14,11 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.zarka.avro.WeatherData;
 
+/**
+ * Read data from SSTable files involves reading the data file, deserializing
+ * the stored data, and efficiently finding the data associated with a specific
+ * key
+ */
 public class SSTableReader {
     private File ssTablesDir; // Path to SSTable files
     private Map<Long, WeatherData> dataMap; // In-memory cache for faster lookups
