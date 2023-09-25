@@ -13,7 +13,7 @@ public class SSTable {
         baseFileName = new File("data/segment-" + Formatter.getFileNameExtension());
     }
 
-    public File getBaseFileName() {
+    public File getBaseFile() {
         return baseFileName;
     }
 }

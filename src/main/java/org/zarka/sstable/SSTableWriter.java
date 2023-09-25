@@ -27,26 +27,33 @@ public class SSTableWriter {
             write(memtable);
             if (!memtable.clearCommitLog()) {
                 logger.error("Error clearing commit log");
+            } else {
+                logger.info("Cleared commit log");
             }
             return null;
         });
     }
 
+    /**
+     * Write the memtable to disk
+     * format: data length (4 bytes) + data (n bytes)
+     * @param memtable The memtable to write
+     */
     public void write(Memtable memtable) {
         logger.info("Writing memtable to SSTable");
         SSTable ssTable = new SSTable();
         try {
             DataOutputStream dos = new DataOutputStream(
-                new FileOutputStream(ssTable.getBaseFileName(), true));
-            for (WeatherData data: memtable.getInOrder())
-                dos.write(data.toByteBuffer().array());
-            dos.flush();
+                    new FileOutputStream(ssTable.getBaseFile(), true));
+            for (WeatherData data : memtable.getInOrder()) {
+                byte[] buf = data.toByteBuffer().array();
+                dos.writeInt(buf.length);
+                dos.write(buf);
+            }
             dos.close();
-        }
-        catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e) {
             logger.error("SSTable directory not found: ", e);
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             logger.error("Error writing to SSTable: ", e);
         }
     }
