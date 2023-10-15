@@ -28,9 +28,8 @@ public class ClientHandler extends Thread {
             String userCommand;
 
             while ((userCommand = reader.readLine()) != null) {
-                logger.info("Received: " + userCommand);
 
-                // Process the received data here and prepare a response
+                // Process the received data and prepare a response
                 logger.info("Node received: " + userCommand);
                 String response = "Node received: " + userCommand;
                 
@@ -48,7 +47,7 @@ public class ClientHandler extends Thread {
                 } else if (userCommand.startsWith("get")) {
                     String[] parts = userCommand.split(" ");
                     if (parts.length == 2) {
-                        Long key = Long.parseLong(parts[1]);
+                        String key = parts[1];
                         response = this.node.get(key);
                         logger.info("Value for key " + key + ": " + response);
                     } else {
@@ -68,7 +67,7 @@ public class ClientHandler extends Thread {
             clientSocket.close();
             logger.info("Client disconnected: " + clientSocket.getInetAddress());
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error("Error handling client: " + e.getMessage());
         }
     }
 }

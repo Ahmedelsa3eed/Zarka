@@ -12,7 +12,8 @@ import java.util.Map;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.zarka.avro.WeatherData;
+import org.zarka.avro.Data;
+
 
 /**
  * Read data from SSTable files involves reading the data file, deserializing
@@ -21,7 +22,7 @@ import org.zarka.avro.WeatherData;
  */
 public class SSTableReader {
     private File ssTablesDir; // Path to SSTable files
-    private Map<Long, WeatherData> dataMap; // In-memory cache for faster lookups
+    private Map<String, Data> dataMap; // In-memory cache for faster lookups
     private static Logger logger = LogManager.getLogger(SSTableReader.class);
 
     public SSTableReader() {
@@ -45,8 +46,8 @@ public class SSTableReader {
                         while (dis.available() > 0) {
                             int dataLength = dis.readInt();
                             byte[] data = dis.readNBytes(dataLength);
-                            WeatherData weatherData = WeatherData.fromByteBuffer(ByteBuffer.wrap(data));
-                            dataMap.put(weatherData.getStationId(), weatherData);
+                            Data res = Data.fromByteBuffer(ByteBuffer.wrap(data));
+                            dataMap.put(res.getKey().toString(), res);
                         }
                 } catch (IOException e) {
                     logger.error("Error reading SSTable file: " + sstable.getName(), e);
@@ -55,7 +56,8 @@ public class SSTableReader {
         }
     }
 
-    public WeatherData get(long id) {
-        return dataMap.get(id);
+    public String get(String key) {
+        CharSequence value = dataMap.get(key).getValue();
+        return value != null ? value.toString() : null;
     }
 }

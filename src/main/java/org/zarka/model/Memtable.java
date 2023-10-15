@@ -3,7 +3,7 @@ package org.zarka.model;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.zarka.CommitLog;
-import org.zarka.avro.WeatherData;
+import org.zarka.avro.Data;
 
 import java.util.List;
 
@@ -27,7 +27,7 @@ public class Memtable {
 
     private void applyEntries(List<WALEntry> walEntries) {
         for (WALEntry entry : walEntries) {
-            logger.info("Applying entry with key: " + entry.getData().getStationId());
+            logger.info("Applying entry with key: " + entry.getData().getKey());
             store.insert(entry.getData());
         }
     }
@@ -36,20 +36,21 @@ public class Memtable {
         wal.deleteRecoveredLog();
     }
 
-    public void put(WeatherData data) {
+    public void put(Data data) {
         wal.appendLog(data);
         store.insert(data);
     }
 
-    public WeatherData get(long id) {
-        return store.searchTree(id);
+    public String get(String key) {
+        CharSequence value = store.searchTree(key).getValue();
+        return value != null ? value.toString() : null;
     }
 
     public boolean exceedsThreshold() {
         return store.getNodesCount() >= MEMTABLE_THRESHOLD;
     }
 
-    public List<WeatherData> getInOrder() {
+    public List<Data> getInOrder() {
         return store.inorder();
     }
 

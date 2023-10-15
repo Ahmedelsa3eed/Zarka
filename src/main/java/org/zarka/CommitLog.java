@@ -2,7 +2,7 @@ package org.zarka;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.zarka.avro.WeatherData;
+import org.zarka.avro.Data;
 import org.zarka.model.WALEntry;
 
 import java.io.*;
@@ -38,13 +38,14 @@ public class CommitLog {
         }
     }
 
-    public void appendLog(WeatherData data) {
+    public void appendLog(Data data) {
         try {
             WALEntry entry = new WALEntry(
                     entryIndex++,
                     data,
                     System.currentTimeMillis());
             entry.serialize(dos); // append into commit log
+            fos.flush(); 
         } catch (IOException e) {
             logger.error("Error appending to commit log", e);
         }

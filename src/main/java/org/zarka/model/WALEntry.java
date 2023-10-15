@@ -2,7 +2,7 @@ package org.zarka.model;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.zarka.avro.WeatherData;
+import org.zarka.avro.Data;
 
 import java.io.*;
 import java.nio.ByteBuffer;
@@ -11,17 +11,17 @@ import java.util.List;
 
 public class WALEntry {
     private final long entryIndex;
-    private final WeatherData data;
+    private final Data data;
     private final long timeStamp;
     private static Logger logger = LogManager.getLogger(WALEntry.class);
 
-    public WALEntry(Long entryIndex, WeatherData data, long timeStamp) {
+    public WALEntry(Long entryIndex, Data data, long timeStamp) {
         this.entryIndex = entryIndex;
         this.data = data;
         this.timeStamp = timeStamp;
     }
 
-    public WeatherData getData() {
+    public Data getData() {
         return data;
     }
 
@@ -34,6 +34,7 @@ public class WALEntry {
         byte[] serializedData = data.toByteBuffer().array();
         dos.writeInt(serializedData.length);
         dos.write(serializedData);
+        dos.flush();
     }
 
     /**
@@ -47,7 +48,7 @@ public class WALEntry {
                 long entryIndex = dataInputStream.readLong();
                 long timeStamp = dataInputStream.readLong();
                 int dataLength = dataInputStream.readInt();
-                WeatherData deserializedData = WeatherData.fromByteBuffer(ByteBuffer.wrap(dataInputStream.readNBytes(dataLength)));
+                Data deserializedData = Data.fromByteBuffer(ByteBuffer.wrap(dataInputStream.readNBytes(dataLength)));
                 entries.add(new WALEntry(entryIndex, deserializedData, timeStamp));
                 logger.info("Read: entryIndex: " + entryIndex + " timeStamp: " + timeStamp + " keyValue: " + deserializedData.toString());
             }
