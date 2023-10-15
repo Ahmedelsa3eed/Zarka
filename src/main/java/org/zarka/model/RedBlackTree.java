@@ -5,12 +5,12 @@ package org.zarka.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.zarka.avro.WeatherData;
+import org.zarka.avro.Data;
 
 public class RedBlackTree {
 
     class Node {
-        WeatherData data;
+        Data data;
         Node parent;
         Node left;
         Node right;
@@ -24,14 +24,14 @@ public class RedBlackTree {
     // Preorder
     private void preOrderHelper(Node node) {
         if (node != TNULL) {
-            System.out.print(node.data.getStationId() + " ");
+            System.out.print(node.data.getKey() + " ");
             preOrderHelper(node.left);
             preOrderHelper(node.right);
         }
     }
 
     // Inorder
-    private void inOrderHelper(Node node, List<WeatherData> res) {
+    private void inOrderHelper(Node node, List<Data> res) {
         if (node != TNULL) {
             inOrderHelper(node.left, res);
             res.add(node.data);
@@ -44,17 +44,17 @@ public class RedBlackTree {
         if (node != TNULL) {
             postOrderHelper(node.left);
             postOrderHelper(node.right);
-            System.out.print(node.data.getStationId() + " ");
+            System.out.print(node.data.getKey() + " ");
         }
     }
 
     // Search the tree
-    private Node searchTreeHelper(Node node, long key) {
-        if (node == TNULL || key == node.data.getStationId()) {
+    private Node searchTreeHelper(Node node, String key) {
+        if (node == TNULL || key.compareTo(node.data.getKey().toString()) == 0) {
             return node;
         }
 
-        if (key < node.data.getStationId()) {
+        if (key.compareTo(node.data.getKey().toString()) < 0) {
             return searchTreeHelper(node.left, key);
         }
         return searchTreeHelper(node.right, key);
@@ -132,15 +132,15 @@ public class RedBlackTree {
         v.parent = u.parent;
     }
 
-    private void deleteNodeHelper(Node node, int key) {
+    private void deleteNodeHelper(Node node, String key) {
         Node z = TNULL;
         Node x, y;
         while (node != TNULL) {
-            if (node.data.getStationId() == key) {
+            if (node.data.getKey() == key) {
                 z = node;
             }
 
-            if (node.data.getStationId() <= key) {
+            if (node.data.getKey().toString().compareTo(key) <= 0) {
                 node = node.right;
             } else {
                 node = node.left;
@@ -241,7 +241,7 @@ public class RedBlackTree {
             }
 
             String sColor = root.color == 1 ? "RED" : "BLACK";
-            System.out.println(root.data.getStationId() + "(" + sColor + ")");
+            System.out.println(root.data.getKey() + "(" + sColor + ")");
             printHelper(root.left, indent, false);
             printHelper(root.right, indent, true);
         }
@@ -260,8 +260,8 @@ public class RedBlackTree {
         preOrderHelper(this.root);
     }
 
-    public List<WeatherData> inorder() {
-        List<WeatherData> res = new ArrayList<>();
+    public List<Data> inorder() {
+        List<Data> res = new ArrayList<>();
         inOrderHelper(this.root, res);
         return res;
     }
@@ -270,7 +270,7 @@ public class RedBlackTree {
         postOrderHelper(this.root);
     }
 
-    public WeatherData searchTree(long k) {
+    public Data searchTree(String k) {
         Node res = searchTreeHelper(this.root, k);
         return res == TNULL ? null : res.data;
     }
@@ -352,7 +352,7 @@ public class RedBlackTree {
         x.parent = y;
     }
 
-    public void insert(WeatherData data) {
+    public void insert(Data data) {
         Node node = new Node();
         node.parent = null;
         node.data = data;
@@ -366,7 +366,7 @@ public class RedBlackTree {
 
         while (x != TNULL) {
             y = x;
-            if (node.data.getStationId() < x.data.getStationId()) {
+            if (node.data.getKey().toString().compareTo(x.data.getKey().toString()) < 0) {
                 x = x.left;
             } else {
                 x = x.right;
@@ -376,7 +376,7 @@ public class RedBlackTree {
         node.parent = y;
         if (y == null) {
             root = node;
-        } else if (node.data.getStationId() < y.data.getStationId()) {
+        } else if (node.data.getKey().toString().compareTo(y.data.getKey().toString()) < 0) {
             y.left = node;
         } else {
             y.right = node;
@@ -398,7 +398,7 @@ public class RedBlackTree {
         return this.root;
     }
 
-    public void deleteNode(int key) {
+    public void deleteNode(String key) {
         deleteNodeHelper(this.root, key);
     }
 

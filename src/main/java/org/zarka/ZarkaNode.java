@@ -3,13 +3,15 @@ package org.zarka;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.zarka.avro.Weather;
-import org.zarka.avro.WeatherData;
+import org.zarka.avro.Data;
 import org.zarka.model.Memtable;
 import org.zarka.sstable.SSTableReader;
 import org.zarka.sstable.SSTableWriter;
+import org.zarka.utils.ClientHandler;
 
 import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
 
 public class ZarkaNode {
     private Memtable memtable;
@@ -26,9 +28,10 @@ public class ZarkaNode {
         memtable.deleteRecoveredLog();
     }
 
-    public void put(WeatherData data) {
-        logger.info("Writing data with id: " + data.getStationId());
+    public void put(String key, String value) {
+        logger.info("Writing data with key: " + key);
         // update the memtable and flush if nessecary
+        Data data = new Data(key, value);
         memtable.put(data);
         if (memtable.exceedsThreshold()) {
             logger.info("Flushing memtable to disk asynchronously");
@@ -48,13 +51,13 @@ public class ZarkaNode {
      * @param id The id of the wheather station to read
      * @return The weather data for the given id
      */
-    public WeatherData get(long id) {
+    public String get(String key) {
         
         // check memtable first
-        WeatherData data = memtable.get(id);
-        if (data != null) {
+        String value = memtable.get(key);
+        if (value != null) {
             logger.info("Reading from memtable");
-            return data;
+            return value;
         }
 
         // retrieve data from sstable
@@ -62,9 +65,9 @@ public class ZarkaNode {
             ssTableReader = new SSTableReader();
         }
         logger.info("Reading from SSTable");
-        data = ssTableReader.get(id);
+        value = ssTableReader.get(key);
 
-        return data;
+        return value;
     }
 
     public void close() {
@@ -81,28 +84,22 @@ public class ZarkaNode {
     }
 
     public static void main(String[] args) throws IOException {
-        ZarkaNode node = new ZarkaNode();
-        // Prepare test data
-        long i;
-        for (i = 1; i < 20; i++) {
-            WeatherData data = new WeatherData(i, 1L, "low", 1681521224L, new Weather(35, 100, 13));
-            node.put(data);
+        int portNumber = Integer.parseInt(args[0]);
+        try (ServerSocket serverSocket = new ServerSocket(portNumber)) {
+            logger.info("Node is listening on port " + portNumber);
+
+            while (true) {
+                ZarkaNode node = new ZarkaNode();
+
+                // Wait for a client to connect
+                Socket clientSocket = serverSocket.accept();
+                logger.info("Client connected: " + clientSocket.getInetAddress());
+
+                // Handle the client connection in a separate thread
+                new ClientHandler(clientSocket, node).start();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        WeatherData testData = new WeatherData(i, 1L, "low", 1681521224L, new Weather(35, 100, 13));
-        node.put(testData);
-        System.out.println("Read from memtable: " + node.get(i).toString());
-
-        // Reading from sstable
-        for (; i <= 40; i++) {
-            WeatherData data = new WeatherData(i, 1L, "low", 1681521224L, new Weather(35, 100, 13));
-            node.put(data);
-        }
-        WeatherData res = node.get(20);
-        System.out.println("Read from sstable: " + res.toString());
-
-        WeatherData res2 = node.get(40);
-        System.out.println("Read from memtable: " + res2.toString());
-
-        node.close();
     }
 }

@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.zarka.avro.WeatherData;
+import org.zarka.avro.Data;
 import org.zarka.model.Memtable;
 
 public class SSTableWriter {
@@ -45,7 +45,7 @@ public class SSTableWriter {
         try {
             DataOutputStream dos = new DataOutputStream(
                     new FileOutputStream(ssTable.getBaseFile(), true));
-            for (WeatherData data : memtable.getInOrder()) {
+            for (Data data : memtable.getInOrder()) {
                 byte[] buf = data.toByteBuffer().array();
                 dos.writeInt(buf.length);
                 dos.write(buf);

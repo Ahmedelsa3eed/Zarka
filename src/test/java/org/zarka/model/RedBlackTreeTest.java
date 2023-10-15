@@ -1,8 +1,7 @@
 package org.zarka.model;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.zarka.avro.Weather;
-import org.zarka.avro.WeatherData;
+import org.zarka.avro.Data;
 
 import java.util.List;
 
@@ -18,76 +17,69 @@ class RedBlackTreeTest {
 
     @org.junit.jupiter.api.Test
     void testInsertOne() {
-        WeatherData data = WeatherData.newBuilder()
-                .setStationId(1L)
-                .setSNo(1L)
-                .setBatteryStatus("low")
-                .setStatusTimestamp(1681521224L)
-                .setWeather(Weather.newBuilder()
-                        .setHumidity(35)
-                        .setTemperature(100)
-                        .setWindSpeed(13)
-                        .build())
+        Data data = Data.newBuilder()
+                .setKey("1")
+                .setValue("low")
                 .build();
-        WeatherData data2 = new WeatherData(2L, 1L, "low", 1681521224L, new Weather(35, 100, 13));
-        WeatherData data3 = new WeatherData(3L, 1L, "low", 1681521224L, new Weather(35, 100, 13));
-        WeatherData data4 = new WeatherData(4L, 1L, "low", 1681521224L, new Weather(35, 100, 13));
-        WeatherData data5 = new WeatherData(5L, 1L, "low", 1681521224L, new Weather(35, 100, 13));
-        WeatherData data6 = new WeatherData(6L, 1L, "low", 1681521224L, new Weather(35, 100, 13));
+        Data data2 = new Data("2", "low");
+        Data data3 = new Data("3", "low");
+        Data data4 = new Data("4", "low");
+        Data data5 = new Data("5", "low");
+        Data data6 = new Data("6", "low");
         bst.insert(data);
         bst.insert(data2);
         bst.insert(data3);
         bst.insert(data4);
         bst.insert(data5);
         bst.insert(data6);
-        List<WeatherData> res = bst.inorder();
+        List<Data> res = bst.inorder();
         // make sure it's ordered
         for (int i = 0; i < res.size() - 1; i++) {
-            assertTrue(res.get(i).getStationId() <= res.get(i + 1).getStationId());
+            assertTrue(res.get(i).getKey().toString().compareTo(res.get(i + 1).getKey().toString()) <= 0);
         }
         assertEquals(bst.getNodesCount(), 6);
     }
 
     @org.junit.jupiter.api.Test
     void deleteNodeOne() {
-        WeatherData data2 = new WeatherData(2L, 1L, "low", 1681521224L, new Weather(35, 100, 13));
-        WeatherData data3 = new WeatherData(3L, 1L, "low", 1681521224L, new Weather(35, 100, 13));
-        WeatherData data4 = new WeatherData(4L, 1L, "low", 1681521224L, new Weather(35, 100, 13));
-        WeatherData data5 = new WeatherData(5L, 1L, "low", 1681521224L, new Weather(35, 100, 13));
-        WeatherData data6 = new WeatherData(6L, 1L, "low", 1681521224L, new Weather(35, 100, 13));
+        Data data2 = new Data("2", "low");
+        Data data3 = new Data("3", "low");
+        Data data4 = new Data("4", "low");
+        Data data5 = new Data("5", "low");
+        Data data6 = new Data("6", "low");
         bst.insert(data2);
         bst.insert(data3);
         bst.insert(data4);
         bst.insert(data5);
         bst.insert(data6);
-        bst.deleteNode(4);
-        List<WeatherData> res = bst.inorder();
+        bst.deleteNode("4");
+        List<Data> res = bst.inorder();
         // make sure it's ordered
         for (int i = 0; i < res.size() - 1; i++) {
-            assertTrue(res.get(i).getStationId() <= res.get(i + 1).getStationId());
+            assertTrue(res.get(i).getKey().toString().compareTo(res.get(i + 1).getKey().toString()) <= 0);
         }
         assertEquals(bst.getNodesCount(), 4);
     }
 
     @org.junit.jupiter.api.Test
     void deleteNodeTwo() {
-        WeatherData data2 = new WeatherData(2L, 1L, "low", 1681521224L, new Weather(35, 100, 13));
-        WeatherData data3 = new WeatherData(3L, 1L, "low", 1681521224L, new Weather(35, 100, 13));
-        WeatherData data4 = new WeatherData(4L, 1L, "low", 1681521224L, new Weather(35, 100, 13));
-        WeatherData data5 = new WeatherData(5L, 1L, "low", 1681521224L, new Weather(35, 100, 13));
-        WeatherData data6 = new WeatherData(6L, 1L, "low", 1681521224L, new Weather(35, 100, 13));
+        Data data2 = new Data("2", "low");
+        Data data3 = new Data("3", "low");
+        Data data4 = new Data("4", "low");
+        Data data5 = new Data("5", "low");
+        Data data6 = new Data("6", "low");
         bst.insert(data2);
         bst.insert(data3);
         bst.insert(data4);
         bst.insert(data5);
         bst.insert(data6);
-        bst.deleteNode(3);
-        bst.deleteNode(4);
-        bst.deleteNode(5);
-        List<WeatherData> res = bst.inorder();
+        bst.deleteNode("3");
+        bst.deleteNode("4");
+        bst.deleteNode("5");
+        List<Data> res = bst.inorder();
         // make sure it's ordered
         for (int i = 0; i < res.size() - 1; i++) {
-            assertTrue(res.get(i).getStationId() <= res.get(i + 1).getStationId());
+            assertTrue(res.get(i).getKey().toString().compareTo(res.get(i + 1).getKey().toString()) <= 0);
         }
         assertEquals(bst.getNodesCount(), 2);
     }
